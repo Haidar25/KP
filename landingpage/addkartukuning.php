@@ -55,7 +55,7 @@ if(isset($_POST)) {
     $bersedia_waktu = mysqli_real_escape_string($conn, $_POST['bersedia_waktu']);
 	$keadaan = mysqli_real_escape_string($conn, $_POST['keadaan']);
 	$nik = mysqli_real_escape_string($conn, $_POST['nik']);
-	$id_user = mysqli_real_escape_string($conn, $_SESSION['id_user']);
+	$id_user = mysqli_real_escape_string($conn, $_GET['id']);
 
 	$pendidikann = $pendidikan . " " . $desc_pendidikan;
 
