@@ -1,0 +1,23 @@
+{
+  "name": "bursamalang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "print-js": "file:print-js"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sesilliafajar@bitbucket.org/haidaralvin/bursamalang.git"
+  },
+  "keywords": [
+    "bursamalang"
+  ],
+  "author": "kominfomalang",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/haidaralvin/bursamalang#readme"
+}
