@@ -146,7 +146,7 @@
                 {
              ?>
             <div class="attachment-block clearfix">
-              <img class="attachment-img" src="img/photo1.png" alt="Attachment Image">
+              <img class="attachment-img" style="margin-right: 15px; padding: 3px" src="img/photo1.png" alt="Attachment Image">
               <div class="attachment-text">
                 <h4 class="attachment-heading"><a href="landingpage/view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">Rp.<?php echo $row['maximumsalary']; ?>/Bulan</span></h4>
                 <div class="attachment-text">
@@ -446,6 +446,26 @@
       </div>
     </section>
 
+    <section id="about" class="content-header padding-5">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-12 text-center latest-job margin-bottom-20">
+            <div class="col-md-3">
+              <a href="dashboard/admin">Ke Dashboard  Amin (Disnaker)</a>
+              <p>User diambil dari tabel Admin</p>
+              <p>User: admin; pass: 123456</p>
+            </div>
+            <div class="col-md-3">
+              <a href="dashboard/admin_kec">
+                <p>Ke Dashboard Amin Kecamatan</p>
+              </a>
+              <p>User diambil dari tabel Admin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
   <!-- /.content-wrapper -->
 

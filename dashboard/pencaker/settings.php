@@ -82,9 +82,9 @@ require_once("../../landingpage/db.php");
                  <ul class="nav nav-pills nav-stacked">
                   <li><a href="edit-profile.php"><i class="fa fa-user"></i> Lihat Profil</a></li>
                   <li><a href="index.php"><i class="fa fa-address-card-o"></i> Lamaran Saya</a></li>
-                  <li><a href="../../landingpage/jobs.php"><i class="fa fa-list-ul"></i> Lowongan</a></li>
                   <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Kotak Pesan</a></li>
                   <li class="active"><a href="settings.php"><i class="fa fa-gear"></i> Pengaturan</a></li>
+                  <li><a href="../../landingpage/jobs.php"><i class="fa fa-list-ul"></i> Lowongan</a></li>
                   <li><a href="../../landingpage/logout.php"><i class="fa fa-arrow-circle-o-right"></i> Keluar</a></li>
                 <!-- </ul>e-o-right"></i> Logout</a></li> -->
                 </ul>

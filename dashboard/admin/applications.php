@@ -78,9 +78,9 @@ require_once("../../landingpage/db.php");
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li ><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                   <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Lowongan Aktif</a></li>
-                  <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Data Pencaker</a></li>
+                  <li  class="active"><a href="applications.php"><i class="fa fa-address-card-o"></i> Data Pencaker</a></li>
                   <li><a href="companies.php"><i class="fa fa-building"></i> UMKM</a></li>
                   <li><a href="../../landingpage/logout.php"><i class="fa fa-arrow-circle-o-right"></i> Keluar</a></li>
                 </ul>
@@ -89,8 +89,13 @@ require_once("../../landingpage/db.php");
           </div>
           <div class="col-md-9 bg-white padding-2">
 
-            <h3>Data Pencaker</h3>
+          <div class="pull-right">
+            <a href="dashboard.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
+          </div>  
+          <h3>Data Pencaker</h3>
+            
             <div class="row margin-top-20">
+              
               <div class="col-md-12">
                 <div class="box-body table-responsive no-padding">
                   <table id="example2" class="table table-hover">
@@ -104,12 +109,23 @@ require_once("../../landingpage/db.php");
                     </thead>
                     <tbody>
                       <?php
-                       $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user ";
-                            $result = $conn->query($sql);
+                        if(!isset($_GET['status'])){
+                          $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user ";
+                          $result = $conn->query($sql);
+                        } else if ($_GET['status']==1){
+                          $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user WHERE users.active = 1";
+                          $result = $conn->query($sql);
+                        } else if ($_GET['status']==0){
+                          $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user WHERE users.active = 0";
+                          $result = $conn->query($sql);
+                        } else if ($_GET['status']==2){
+                          $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user WHERE users.active = 2";
+                          $result = $conn->query($sql);
+                        }
 
-                            if($result->num_rows > 0) {
-                              while($row = $result->fetch_assoc()) 
-                              {     
+                        if($result->num_rows > 0) {
+                          while($row = $result->fetch_assoc()) 
+                        {     
 
                                 
                       ?>

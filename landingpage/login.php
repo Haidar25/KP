@@ -103,7 +103,7 @@
               </div>
               <p data-toggle="modal" data-target="#mylogin" class="small-box-footer">
                 <a href="#"><font color="white">Masuk Di Sini </font><i class="fa fa-arrow-circle-right" style="color:white"></i></a></p>
-            </div>
+              </div>
           </div>
           <div class="col-md-6 latest-job ">
             <div class="small-box bg-aqua padding-5">

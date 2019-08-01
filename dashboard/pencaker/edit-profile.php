@@ -82,9 +82,9 @@ require_once("../../landingpage/db.php");
                 <ul class="nav nav-pills nav-stacked">
                   <li class="active"><a href="edit-profile.php"><i class="fa fa-user"></i> Lihat Profil</a></li>
                   <li><a href="index.php"><i class="fa fa-address-card-o"></i> Lamaran Saya</a></li>
-                  <li><a href="../../landingpage/jobs.php"><i class="fa fa-list-ul"></i> Lowongan</a></li>
                   <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Kotak Pesan</a></li>
                   <li><a href="settings.php"><i class="fa fa-gear"></i> Pengaturan</a></li>
+                  <li><a href="../../landingpage/jobs.php"><i class="fa fa-list-ul"></i> Lowongan</a></li>
                   <li><a href="../../landingpage/logout.php"><i class="fa fa-arrow-circle-o-right"></i> Keluar</a></li>
                   
                 </ul>
@@ -92,30 +92,27 @@ require_once("../../landingpage/db.php");
             </div>
           </div>
           <div class="col-md-9 bg-white padding-2">
-          <div class="container">
-      <?php
-      $sql = "SELECT * FROM pencaker WHERE id_user = '$_SESSION[id_user]'";
-      $result = $conn->query($sql);
+            <div class="#">
+              <?php
+                $sql = "SELECT * FROM pencaker WHERE id_user = '$_SESSION[id_user]'";
+                $result = $conn->query($sql);
 
-      if($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-      ?>
-        <div class="row">          
-          <div class="col-md-12 bg-white padding-2">
-            <div class="pull-left">
-              <h2><b><i><?php echo $row['nama'] ?></i></b></h2>
-            </div>
-            <div class="pull-right">
-              <a href="list-pencaker.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
-            </div>
-          <div>
-          
-          <div class="col-md-12 bg-white">
-            <hr>
-          </div>      
-          <div class="col-md-12 bg-white padding-2">
-            <div class="col-md-3 text-center">
-              <img src="../../img/profile.PNG" style="width: 200px; height: 210px;">
+                if($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+              ?>
+          <div class="row">          
+            <div class="col-md-12 bg-white padding-2">
+              <div class="pull-left">
+                <h2><b><i><?php echo $row['nama'] ?></i></b></h2>
+              </div>
+            <div>
+                    
+            <div class="col-md-12 bg-white">
+              <hr>
+            </div>      
+            <div class="col-md-12 bg-white padding-2">
+              <div class="col-md-12 text-center">
+              <img src="../../img/profile.PNG" style="width: 200px; height: 210px;"><br>
               <label><?php echo $row['nama'] ?></label>
               <p><?php echo $row['tanggal_lahir'] ?></p>
               <p><?php if($row['jenis_kelamin']== 'P'){echo "Perempuan";}else{echo "Laki Laki";} ?> . <?php echo $row['status']; ?> . <?php echo $row['agama'] ?> . <?php echo $row['kewarganegaraan'] ?></p>
@@ -139,103 +136,105 @@ require_once("../../landingpage/db.php");
                 } 
               ?>
               
-            </div>
-            
-            <!-- Sisi Kanan -->
-            <div class="col-md-9">
-              <div class="col-md-12">
-                <!-- if else pendidikan -->
-                <h4><b>Pendidikan</b></h4>
-                <div class="col-md-6">
-                  <label>Formal</label>
-                  <?php
-                  if($row['pd_formal'] == "Tidak Ada"){
-                      echo " <p><i>Tidak Ada</i></p>";
-                  }else{
-                    echo "<p><i>".$row['pd_formal']."</i></p>";
-                  }
-                  ?>
-                  <label>Bahasa</label>
-                  <p><i><?php echo $row['bahasa']; ?></i></p>
-                </div>
+              </div>
                 
-                <div class="col-md-6">
-                  <label>Non Formal</label>
-                  <p><i><?php echo $row['penyelenggara'] ?></i> .<?php if($row['penyelenggara'] == "Tidak Ada"){ echo "";}else{ echo $row['lama']." bulan";} ?></p>
+              <!-- Sisi Kanan -->
+              <div class="col-md-12">
+                <div class="col-md-12">
+                  <!-- if else pendidikan -->
+                  <h4><b>Pendidikan</b></h4>
+                  <div class="col-md-6">
+                    <label>Formal</label>
+                    <?php
+                    if($row['pd_formal'] == "Tidak Ada"){
+                        echo " <p><i>Tidak Ada</i></p>";
+                    }else{
+                      echo "<p><i>".$row['pd_formal']."</i></p>";
+                    }
+                    ?>
+                    <label>Bahasa</label>
+                    <p><i><?php echo $row['bahasa']; ?></i></p>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label>Non Formal</label>
+                    <p><i><?php echo $row['penyelenggara'] ?>
+                      </i> .<?php if($row['penyelenggara'] == "Tidak Ada"){ echo "";}else{ echo $row['lama']." bulan";} ?>
+                    </p>
+                    <br>
+                    <br>
+                  </div>
+                </div>
+                  
+                <div class="col-md-12 ">
+                  <div class="margin-top-20">
+                    <h4><b>Pekerjaan Sekarang</b></h4>
+                    <p><i><?php echo $row['kerja_sekarang'] ?></i></p> 
+                  </div>
+                  
+                  <div class="margin-top-20">
+                    <h4><b>Terdaftar dalam Jabatan</b></h4>
+                    <div class="col-md-6">
+                      <label>Pokok</label>
+                      <p><i><?php echo $row['j_kerja_pokok']; ?></i></p> 
+                    </div>
+                    <div class="col-md-6">
+                      <label>Sampingan</label>
+                      <p><i><?php echo $row['j_kerja_sampingan']; ?></i></p> 
+                    </div>
+                  </div>
                   <br>
                   <br>
-                </div>
-              </div>
-
-              <div class="col-md-12 ">
-                <div class="margin-top-20">
-                  <h4><b>Pekerjaan Sekarang</b></h4>
-                  <p><i><?php echo $row['kerja_sekarang'] ?></i></p> 
-                </div>
-
-                <div class="margin-top-20">
-                  <h4><b>Terdaftar dalam Jabatan</b></h4>
-                  <div class="col-md-6">
-                    <label>Pokok</label>
-                    <p><i><?php echo $row['j_kerja_pokok']; ?></i></p> 
+                  
+                  <div class="margin-top-20">
+                    <h4><b>Riwayat Pekerjaan</b></h4>
+                    <div class="col-md-6">
+                      <label>Jenis Lapangan Usaha 1</label>
+                      <p><i><?php echo $row['jabatan1']." . ".$row['kerja1']." . ".$row['lama1']." Bulan"; ?></i></p> 
+                      <p><i>Rp. <?php echo $row['upah1']; ?>/bln</i></p> 
+                      <p><i>Keluar karena <?php echo $row['alasan1']; ?></i></p> 
+                    </div>
+                    <div class="col-md-6">
+                      <label></label>
+                      <label>Jenis Lapangan Usaha 2</label>
+                      <p><i><?php echo $row['jabatan2']." . ".$row['usaha2']." . ".$row['lama2']." Bulan"; ?></i></p> 
+                      <p><i>Rp. <?php echo $row['upah2']; ?>/bln</i></p> 
+                      <p><i>Keluar karena <?php echo $row['alasan2']; ?></i></p> 
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <label>Sampingan</label>
-                    <p><i><?php echo $row['j_kerja_sampingan']; ?></i></p> 
+                  
+                  <div class="margin-top-20">
+                    <h4><b>Pekerjaan yang Diinginkan</b></h4>
+                    <div class="col-md-6">
+                      <label>Jabatan yang Diinginkan</label>
+                      <p><i><?php echo $row['ingin_jabatan'];?></i></p> 
+                      <br>
+                      <label>Bersedia Ditempatkan</label>
+                      <p><i>Di <?php echo $row['penempatan']?></i></p> 
+                      <br>
+                      <label>Bersedia Ditempatkan untuk Waktu</label>
+                      <p><i><?php echo $row['bersedia_waktu'];?></i></p> 
+                      <br>
+                    </div>                                    
+                    <div class="col-md-6">
+                      <label>Bersedia Menerima Upah</label>
+                      <p><i><?php echo $row['ingin_upah'];?></i></p> 
+                      <br>
+                      <label>Upah yang Diinginkan</label>
+                      <p><i>Rp. <?php echo $row['bersedia_upah'];?></i></p> 
+                      <br>
+                      <label>Keadaan yang Diinginkan</label>
+                      <p><i><?php echo $row['keadaan'];?></i></p> 
+                      <br>
+                    </div>                                    
                   </div>
-                </div>
-                <br>
-                <br>
-
-                <div class="margin-top-20">
-                  <h4><b>Riwayat Pekerjaan</b></h4>
-                  <div class="col-md-6">
-                    <label>Jenis Lapangan Usaha 1</label>
-                    <p><i><?php echo $row['jabatan1']." . ".$row['kerja1']." . ".$row['lama1']." Bulan"; ?></i></p> 
-                    <p><i>Rp. <?php echo $row['upah1']; ?>/bln</i></p> 
-                    <p><i>Keluar karena <?php echo $row['alasan1']; ?></i></p> 
-                  </div>
-                  <div class="col-md-6">
-                    <label></label>
-                    <label>Jenis Lapangan Usaha 2</label>
-                    <p><i><?php echo $row['jabatan2']." . ".$row['usaha2']." . ".$row['lama2']." Bulan"; ?></i></p> 
-                    <p><i>Rp. <?php echo $row['upah2']; ?>/bln</i></p> 
-                    <p><i>Keluar karena <?php echo $row['alasan2']; ?></i></p> 
-                  </div>
-                </div>
-
-                <div class="margin-top-20">
-                  <h4><b>Pekerjaan yang Diinginkan</b></h4>
-                  <div class="col-md-6">
-                    <label>Jabatan yang Diinginkan</label>
-                    <p><i><?php echo $row['ingin_jabatan'];?></i></p> 
-                    <br>
-                    <label>Bersedia Ditempatkan</label>
-                    <p><i>Di <?php echo $row['penempatan']?></i></p> 
-                    <br>
-                    <label>Bersedia Ditempatkan untuk Waktu</label>
-                    <p><i><?php echo $row['bersedia_waktu'];?></i></p> 
-                    <br>
-                  </div>                                    
-                  <div class="col-md-6">
-                    <label>Bersedia Menerima Upah</label>
-                    <p><i><?php echo $row['ingin_upah'];?></i></p> 
-                    <br>
-                    <label>Upah yang Diinginkan</label>
-                    <p><i>Rp. <?php echo $row['bersedia_upah'];?></i></p> 
-                    <br>
-                    <label>Keadaan yang Diinginkan</label>
-                    <p><i><?php echo $row['keadaan'];?></i></p> 
-                    <br>
-                  </div>                                    
                 </div>
               </div>
             </div>
+            <?php   }
+                  } 
+            ?>      
           </div>
-          <?php   }
-                } 
-          ?>      
-        </div>
       </div>
           </div>
         </div>

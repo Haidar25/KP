@@ -78,20 +78,22 @@ require_once("../../landingpage/db.php");
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                  <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Lowongan Aktif</a></li>
+                <li ><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                  <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Lowongan Aktif</a></li>
                   <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Data Pencaker</a></li>
                   <li><a href="companies.php"><i class="fa fa-building"></i> UMKM</a></li>
-                  <li>
+                  <!-- <li>
                     <a href="#"><i class="fa fa-address-card"></i>Berita</a>
-                  </li>
+                  </li> -->
                   <li><a href="../../landingpage/logout.php"><i class="fa fa-arrow-circle-o-right"></i> Keluar</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="col-md-9 bg-white padding-2">
-
+          <div class="pull-right">
+              <a href="dashboard.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
+            </div>
             <h3>Daftar Lowongan Aktif</h3>
             <div class="row margin-top-20">
               <div class="col-md-12">
