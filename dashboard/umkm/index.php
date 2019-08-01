@@ -79,10 +79,10 @@ require_once("../../landingpage/db.php");
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
                   <li class="active"><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                  <li><a href="list-company.php"><i class="fa fa-tv"></i> UMKM Saya</a></li>
+                  <li><a href="list-company.php"><i class="fa fa-industry"></i> UMKM Saya</a></li>
                   <li><a href="create-job-post.php"><i class="fa fa-paper-plane"></i> Buat Lowongan</a></li>
-                  <li><a href="my-job-post.php"><i class="fa fa-tv"></i> Lowongan Saya</a></li>
-                  <li><a href="job-applications.php"><i class="fa fa-tv"></i> Pelamar di UMKM Saya</a></li>
+                  <li><a href="my-job-post.php"><i class="fa fa-tasks"></i> Lowongan Saya</a></li>
+                  <li><a href="job-applications.php"><i class="fa fa-users"></i> Pelamar di UMKM Saya</a></li>
                   <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Kotak Pesan</a></li>
                   <li><a href="settings.php"><i class="fa fa-gear"></i> Pengaturan</a></li>
                   <li><a href="resume-database.php"><i class="fa fa-user"></i> Data Pelamar</a></li>
