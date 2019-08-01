@@ -102,7 +102,7 @@ require_once("db.php");
           <form method="post" id="registerCandidates" action="adduser.php" enctype="multipart/form-data">
             <div class="col-md-12 latest-job ">
               <div class="form-group">
-                <input class="form-control input-lg" type="text" id="email" name="email" placeholder="Alamat Email *" required>
+                <input class="form-control input-lg" type="email" id="email" name="email" placeholder="Alamat Email *" required>
               </div>
 
               <div class="form-group">
