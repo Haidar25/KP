@@ -80,9 +80,6 @@ require_once("../../landingpage/db.php");
                   <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Lowongan Aktif</a></li>
                   <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Data Pencaker</a></li>
                   <li><a href="companies.php"><i class="fa fa-building"></i> UMKM</a></li>
-                  <li>
-                    <a href="news.php"><i class="fa fa-address-card"></i>Berita</a>
-                  </li>
                   <li><a href="../../landingpage/logout.php"><i class="fa fa-arrow-circle-o-right"></i> Keluar</a></li>
                 </ul>
               </div>

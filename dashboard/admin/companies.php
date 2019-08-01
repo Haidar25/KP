@@ -78,10 +78,10 @@ require_once("../../landingpage/db.php");
               </div>
               <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                   <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Lowongan Aktif</a></li>
                   <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Data Pencaker</a></li>
-                  <li><a href="companies.php"><i class="fa fa-building"></i> UMKM</a></li>
+                  <li class="active"><a href="companies.php"><i class="fa fa-building"></i> UMKM</a></li>
                   <li><a href="../../landingpage/logout.php"><i class="fa fa-arrow-circle-o-right"></i> Keluar</a></li>
                 </ul>
               </div>
