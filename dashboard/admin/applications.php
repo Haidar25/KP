@@ -109,12 +109,23 @@ require_once("../../landingpage/db.php");
                     </thead>
                     <tbody>
                       <?php
-                       $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user ";
-                            $result = $conn->query($sql);
+                        if(!isset($_GET['status'])){
+                          $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user ";
+                          $result = $conn->query($sql);
+                        } else if ($_GET['status']==1){
+                          $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user WHERE users.active = 1";
+                          $result = $conn->query($sql);
+                        } else if ($_GET['status']==0){
+                          $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user WHERE users.active = 0";
+                          $result = $conn->query($sql);
+                        } else if ($_GET['status']==2){
+                          $sql = "SELECT pencaker.nama, pencaker.kecamatan, pencaker.desa, users.active, users.id_user, users.resume FROM users JOIN pencaker ON users.id_user=pencaker.id_user WHERE users.active = 2";
+                          $result = $conn->query($sql);
+                        }
 
-                            if($result->num_rows > 0) {
-                              while($row = $result->fetch_assoc()) 
-                              {     
+                        if($result->num_rows > 0) {
+                          while($row = $result->fetch_assoc()) 
+                        {     
 
                                 
                       ?>

@@ -109,7 +109,16 @@ require_once("../../landingpage/db.php");
                     </thead>
                     <tbody>
                       <?php
-                      $sql = "SELECT company.*, pengusaha.nama FROM company JOIN pengusaha ON pengusaha.id_pengusaha = company.id_pengusaha";
+                      if(!isset($_GET['status'])){
+                        $sql = "SELECT company.*, pengusaha.nama FROM company JOIN pengusaha ON pengusaha.id_pengusaha = company.id_pengusaha";
+                      } else if ($_GET['status']==1) {
+                        $sql = "SELECT company.*, pengusaha.nama FROM company JOIN pengusaha ON pengusaha.id_pengusaha = company.id_pengusaha WHERE company.active = 1";
+                      } else if ($_GET['status']==2) {
+                        $sql = "SELECT company.*, pengusaha.nama FROM company JOIN pengusaha ON pengusaha.id_pengusaha = company.id_pengusaha WHERE company.active = 2";
+                      } else if ($_GET['status']==0) {
+                        $sql = "SELECT company.*, pengusaha.nama FROM company JOIN pengusaha ON pengusaha.id_pengusaha = company.id_pengusaha WHERE company.active = 0";
+                      }
+                      
                       $result = $conn->query($sql);
                       if($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {

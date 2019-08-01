@@ -94,12 +94,12 @@ require_once("../../landingpage/db.php");
             <br>
             <div class="row">
               <div class="col-md-6">
-                <div class="info-box bg-c-yellow">
-                  <span class="info-box-icon bg-red"><i class="ion ion-briefcase"></i></span>
-                  <div data-href="companies.php" class="info-box-content">
+                <div class="info-box bg-c-yellow" data-href="companies.php">
+                  <span class="info-box-icon bg-maroon-gradient"><i class="ion ion-briefcase"></i></span>
+                  <div class="info-box-content">
                     <span class="info-box-text">Total UMKM Terdaftar</span>
                     <?php
-                      $sql = "SELECT * FROM company WHERE active='1'";
+                      $sql = "SELECT * FROM company";
                       $result = $conn->query($sql);
                       if($result->num_rows > 0) {
                         $totalno = $result->num_rows;
@@ -112,9 +112,9 @@ require_once("../../landingpage/db.php");
                 </div>                
               </div>
               <div class="col-md-6">
-                <div class="info-box bg-c-yellow">
-                  <span class="info-box-icon bg-red"><i class="ion ion-briefcase"></i></span>
-                  <div data-href="companies.php" class="info-box-content">
+                <div class="info-box bg-c-yellow" data-href="companies.php?status=2">
+                  <span class="info-box-icon bg-yellow-gradient"><i class="ion ion-briefcase"></i></span>
+                  <div  class="info-box-content">
                     <span class="info-box-text">UMKM Belum di Verifikasi</span>
                     <?php
                       $sql = "SELECT * FROM company WHERE active='2'";
@@ -130,13 +130,52 @@ require_once("../../landingpage/db.php");
                   </div>
                 </div>                
               </div>
+              
               <div class="col-md-6">
-                <div class="info-box bg-c-yellow">
-                  <span class="info-box-icon bg-green"><i class="ion ion-person-stalker"></i></span>
-                  <div class="info-box-content" data-href="applications.php">
+                <div class="info-box bg-c-yellow" data-href="companies.php?status=1">
+                  <span class="info-box-icon bg-light-blue-gradient"><i class="ion ion-person-stalker"></i></span>
+                  <div class="info-box-content" >
+                    <span class="info-box-text" >Total UMKM Terverifikasi</span>
+                    <?php
+                      $sql = "SELECT * FROM company WHERE active='1'";
+                      $result = $conn->query($sql);
+                      if($result->num_rows > 0) {
+                        $totalno = $result->num_rows;
+                      } else {
+                        $totalno = 0;
+                      }
+                    ?>
+                    <span class="info-box-number"><?php echo $totalno; ?></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-box bg-c-yellow" data-href="companies.php?status=0">
+                  <span class="info-box-icon bg-red-gradient"><i class="ion ion-person-stalker"></i></span>
+                  <div class="info-box-content" >
+                    <span class="info-box-text" >Total UMKM Ditolak</span>
+                    <?php
+                      $sql = "SELECT * FROM company WHERE active='0'";
+                      $result = $conn->query($sql);
+                      if($result->num_rows > 0) {
+                        $totalno = $result->num_rows;
+                      } else {
+                        $totalno = 0;
+                      }
+                    ?>
+                    <span class="info-box-number"><?php echo $totalno; ?></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-box bg-c-yellow" data-href="applications.php">
+                  <span class="info-box-icon bg-maroon-gradient"><i class="ion ion-person-stalker"></i></span>
+                  <div class="info-box-content" >
                     <span class="info-box-text" >Total Pencaker Terdaftar</span>
                     <?php
-                      $sql = "SELECT * FROM users WHERE active='1'";
+                      $sql = "SELECT * FROM users INNER JOIN pencaker ON pencaker.id_user=users.id_user";
                       $result = $conn->query($sql);
                       if($result->num_rows > 0) {
                         $totalno = $result->num_rows;
@@ -148,13 +187,33 @@ require_once("../../landingpage/db.php");
                   </div>
                 </div>
               </div>
+
               <div class="col-md-6">
-                <div class="info-box bg-c-yellow">
-                  <span class="info-box-icon bg-green"><i class="ion ion-person-stalker"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Pencaker Belum di Verifikasi</span>
+                <div class="info-box bg-c-yellow" data-href="applications.php?status=2">
+                  <span class="info-box-icon bg-yellow-gradient"><i class="ion ion-person-stalker"></i></span>
+                  <div class="info-box-content" >
+                    <span class="info-box-text" >Pencaker Belum Diverifikasi</span>
                     <?php
-                      $sql = "SELECT * FROM users WHERE active='0'";
+                      $sql = "SELECT * FROM users INNER JOIN pencaker ON pencaker.id_user=users.id_user WHERE users.active = 2";
+                      $result = $conn->query($sql);
+                      if($result->num_rows > 0) {
+                        $totalno = $result->num_rows;
+                      } else {
+                        $totalno = 0;
+                      }
+                    ?>
+                    <span class="info-box-number"><?php echo $totalno; ?></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-box bg-c-yellow" data-href="applications.php?status=1">
+                  <span class="info-box-icon bg-light-blue-gradient"  ><i class="ion ion-person-stalker"></i></span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">Pencaker Sudah Diverifikasi</span>
+                    <?php
+                      $sql = "SELECT * FROM users INNER JOIN pencaker ON pencaker.id_user=users.id_user WHERE users.active = 1";
                       $result = $conn->query($sql);
                       if($result->num_rows > 0) {
                         $totalno = $result->num_rows;
@@ -167,9 +226,28 @@ require_once("../../landingpage/db.php");
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="info-box bg-c-yellow">
+                <div class="info-box bg-c-yellow" data-href="applications.php?status=0">
+                  <span class="info-box-icon bg-red-gradient"  ><i class="ion ion-person-stalker"></i></span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">Pencaker Ditolak</span>
+                    <?php
+                      $sql = "SELECT * FROM users INNER JOIN pencaker ON pencaker.id_user=users.id_user WHERE users.active = 0";
+                      $result = $conn->query($sql);
+                      if($result->num_rows > 0) {
+                        $totalno = $result->num_rows;
+                      } else {
+                        $totalno = 0;
+                      }
+                    ?>
+                    <span class="info-box-number"><?php echo $totalno; ?></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-box bg-c-yellow" data-href="active-jobs.php">
                   <span class="info-box-icon bg-aqua"><i class="ion ion-person-add"></i></span>
-                  <div data-href="active-jobs.php" class="info-box-content">
+                  <div  class="info-box-content">
                     <span class="info-box-text">Total Lowongan Yang Di Posting</span>
                     <?php
                       $sql = "SELECT * FROM buat_lowongan";
@@ -184,8 +262,8 @@ require_once("../../landingpage/db.php");
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="info-box bg-c-yellow">
+              <!-- <div class="col-md-6">
+                <div class="info-box bg-c-yellow" data-href="active-jobs.php">
                   <span class="info-box-icon bg-yellow"><i class="ion ion-ios-browsers"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Total Lamaran Kerja</span>
@@ -201,7 +279,7 @@ require_once("../../landingpage/db.php");
                     <span class="info-box-number"><?php echo $totalno; ?></span>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
           </div>
