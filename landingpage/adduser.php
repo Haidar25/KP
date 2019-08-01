@@ -144,8 +144,7 @@ if(isset($_POST)) {
 			}
 
 			$_SESSION['registerCompleted'] = true;
-			$_SESSION['id_user'] = $id_user;
-			header("Location: register-kartukuning.php");
+			header("Location: register-kartukuning.php?id=".$id_user);
 
 			exit();
 		} else {

@@ -123,9 +123,8 @@ require_once("../../landingpage/db.php");
                       <tr>
                       
                         <td><?php echo $row['jobtitle']; ?></td>
-                        <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
+                        <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>&id_company=<?php echo $row['id_company']; ?>"><i class="fa fa-address-card-o"></i></a></td>
                         <td><?php echo $row['companyname']?></td>
-                           
                         
                       </tr>
                       <?php
