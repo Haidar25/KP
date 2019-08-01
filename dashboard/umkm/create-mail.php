@@ -104,17 +104,16 @@ require_once("../../landingpage/db.php");
                 <div class="box-header with-border">
                   <h3 class="box-title">Tulis Pesan Baru</h3>
                 </div>
-<<<<<<< HEAD
                 <!-- /.box-header -->
                 <div class="box-body">
                   <div class="form-group">
                     <select name="to" class="form-control">
                       <?php 
-                      $sql = "SELECT * FROM lowongan INNER JOIN users ON lowongan.id_user=users.id_user WHERE lowongan.id_company='$_SESSION  [id_company]' AND lowongan.status='2'";
+                      $sql = "SELECT * FROM lowongan INNER JOIN users ON lowongan.id_user=users.id_user INNER JOIN pencaker ON pencaker.id_user = users.id_user WHERE lowongan.id_company IN (SELECT id_company from company WHERE id_pengusaha = '$_SESSION[id_pengusaha]') AND lowongan.status='2'";
                       $result = $conn->query($sql);
                       if($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                          echo '<option value="'.$row['id_user'].'">'.$row['firstname'].' '.$row['lastname'].'</option>';
+                          echo '<option value="'.$row['id_user'].'">'.$row['nama'].'</option>';
                         }
                       }
                       ?>
@@ -133,13 +132,6 @@ require_once("../../landingpage/db.php");
                     <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send</button>
                   </div>
                   <a href="mailbox.php" class="btn btn-danger"><i class="fa fa-times"></i> Batalkan</a>
-=======
-                <div class="form-group">
-                  <input class="form-control" name="subject" placeholder="Subjek:">
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control input-lg" id="description" name="description" placeholder="Deskripsi Lowongan"></textarea>
->>>>>>> 43e68bb9d40d9f91b9ae820e791d4c617cb6d7d8
                 </div>
                 <!-- /.box-footer -->
               </div>
