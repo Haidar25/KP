@@ -89,8 +89,13 @@ require_once("../../landingpage/db.php");
           </div>
           <div class="col-md-9 bg-white padding-2">
 
-            <h3>Data Pencaker</h3>
+          <div class="pull-right">
+            <a href="dashboard.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
+          </div>  
+          <h3>Data Pencaker</h3>
+            
             <div class="row margin-top-20">
+              
               <div class="col-md-12">
                 <div class="box-body table-responsive no-padding">
                   <table id="example2" class="table table-hover">

@@ -96,7 +96,7 @@ require_once("../../landingpage/db.php");
               <div class="col-md-6">
                 <div class="info-box bg-c-yellow">
                   <span class="info-box-icon bg-red"><i class="ion ion-briefcase"></i></span>
-                  <div class="info-box-content">
+                  <div data-href="companies.php" class="info-box-content">
                     <span class="info-box-text">Total UMKM Terdaftar</span>
                     <?php
                       $sql = "SELECT * FROM company WHERE active='1'";
@@ -114,7 +114,7 @@ require_once("../../landingpage/db.php");
               <div class="col-md-6">
                 <div class="info-box bg-c-yellow">
                   <span class="info-box-icon bg-red"><i class="ion ion-briefcase"></i></span>
-                  <div class="info-box-content">
+                  <div data-href="companies.php" class="info-box-content">
                     <span class="info-box-text">UMKM Belum di Verifikasi</span>
                     <?php
                       $sql = "SELECT * FROM company WHERE active='2'";
@@ -133,8 +133,8 @@ require_once("../../landingpage/db.php");
               <div class="col-md-6">
                 <div class="info-box bg-c-yellow">
                   <span class="info-box-icon bg-green"><i class="ion ion-person-stalker"></i></span>
-                  <div class="info-box-content">
-                    <span class="info-box-text">Total Pencaker Terdaftar</span>
+                  <div class="info-box-content" data-href="applications.php">
+                    <span class="info-box-text" >Total Pencaker Terdaftar</span>
                     <?php
                       $sql = "SELECT * FROM users WHERE active='1'";
                       $result = $conn->query($sql);
@@ -169,7 +169,7 @@ require_once("../../landingpage/db.php");
               <div class="col-md-6">
                 <div class="info-box bg-c-yellow">
                   <span class="info-box-icon bg-aqua"><i class="ion ion-person-add"></i></span>
-                  <div class="info-box-content">
+                  <div data-href="active-jobs.php" class="info-box-content">
                     <span class="info-box-text">Total Lowongan Yang Di Posting</span>
                     <?php
                       $sql = "SELECT * FROM buat_lowongan";
@@ -235,5 +235,18 @@ require_once("../../landingpage/db.php");
 <script src="../../js/ajaxlibs-twitterbootsrap.js"></script>
 <!-- AdminLTE App -->
 <script src="../../js/adminlte.min.js"></script>
+
+  <!-- Script for clickable div -->
+  <script>
+    $('*[data-href]').on("click",function(){
+      window.location = $(this).data('href');
+      return false;
+    });
+    $("td > a").on("click",function(e){
+      e.stopPropagation();
+    });
+  </script>
+  <!--  -->
+
 </body>
 </html>

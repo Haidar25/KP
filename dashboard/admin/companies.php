@@ -88,7 +88,9 @@ require_once("../../landingpage/db.php");
             </div>
           </div>
           <div class="col-md-9 bg-white padding-2">
-
+          <div class="pull-right">
+              <a href="dashboard.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
+            </div>
             <h3>Data UMKM</h3>
             <div class="row margin-top-20">
               <div class="col-md-12">
