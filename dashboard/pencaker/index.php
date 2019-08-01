@@ -76,15 +76,15 @@ require_once("../../landingpage/db.php");
           <div class="col-md-3">
             <div class="box box-solid">
               <div class="box-header with-border">
-                <h3 class="box-title">Selamat Datang <b><?php echo $_SESSION['email']; ?></b></h3>
+                <h3 class="box-title">Selamat Datang <b><?php echo $_SESSION['name']; ?></b></h3>
               </div>
               <div class="box-body no-padding">
                <ul class="nav nav-pills nav-stacked">
                   <li><a href="edit-profile.php"><i class="fa fa-user"></i> Lihat Profil</a></li>
                   <li class="active"><a href="index.php"><i class="fa fa-address-card-o"></i> Lamaran Saya</a></li>
-                  <li><a href="../../landingpage/jobs.php"><i class="fa fa-list-ul"></i> Lowongan</a></li>
                   <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Kotak Pesan</a></li>
                   <li><a href="settings.php"><i class="fa fa-gear"></i> Pengaturan</a></li>
+                  <li><a href="../../landingpage/jobs.php"><i class="fa fa-list-ul"></i> Lowongan</a></li>
                   <li><a href="../../landingpage/logout.php"><i class="fa fa-arrow-circle-o-right"></i> Keluar</a></li>
                 </ul>
               </div>
